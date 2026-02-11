@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Store | Ultra Premium</title>
+    <link rel="shortcut icon" href="https://c.static-nike.com/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="preloader">
+        <svg class="nike-loader" viewBox="0 0 24 24" width="80" height="80">
+            <path d="M21 8.719L7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z" fill="black"/>
+        </svg>
+    </div>
+
+    <header>
+        <div class="logo" onclick="navegar('home')">
+            <svg viewBox="0 0 24 24" width="60" height="60"><path d="M21 8.719L7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z"/></svg>
+        </div>
+        
+        <nav class="desktop-nav">
+            <ul>
+                <li onclick="navegar('home')">Inicio</li>
+                <li onclick="navegar('tienda', 'Hombre')">Hombre</li>
+                <li onclick="navegar('tienda', 'Mujer')">Mujer</li>
+                <li onclick="navegar('tienda')">Colección</li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Buscar...">
+                <div class="icon-btn" onclick="activarBusqueda()">🔍</div>
+            </div>
+
+            <div class="icon-btn cart-trigger" onclick="toggleCarrito()">
+                🛒 <span id="contador-carrito">0</span>
+            </div>
+            <div class="menu-btn" onclick="toggleMenuMovil()">☰</div>
+        </div>
+    </header>
+
+    <main id="app">
+        
+        <div id="view-home" class="view active">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>NIKE PEGASUS<br>PREMIUM</h1>
+                    <p>Diseño llevado al límite de lo imposible.</p>
+                    <div class="hero-btns">
+                        <button class="btn-primary" onclick="verProductoDirecto('7')">Comprar Ahora</button>
+                        <button class="btn-outline" onclick="abrirVideo()">Ver Video</button>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="imagenes/airmaxpegasu.jpg" alt="Hero Shoe" class="floating-shoe">
+                </div>
+            </section>
+
+            <section class="benefits-bar">
+                <div class="benefit"><span class="icon">📦</span><div><h3>Envío Gratis</h3><p>En pedidos +$150.000</p></div></div>
+                <div class="benefit"><span class="icon">💳</span><div><h3>Cuotas Sin Interés</h3><p>Hasta 6 cuotas</p></div></div>
+                <div class="benefit"><span class="icon">↩️</span><div><h3>Devoluciones</h3><p>30 días de garantía</p></div></div>
+            </section>
+
+            <section class="section-container">
+                <div class="section-header">
+                    <h2>Tendencias de la Semana</h2>
+                    <button class="link-btn" onclick="navegar('tienda')">Ver Todo →</button>
+                </div>
+                <div class="trending-grid" id="home-trending"></div>
+            </section>
+
+            <section class="big-banner jordan-banner">
+                <div class="banner-content">
+                    <h2>AIR JORDAN</h2>
+                    <p>El legado continúa. Vuela más alto.</p>
+                    <button class="btn-white" onclick="navegar('tienda', 'Jordan')">Explorar Jordan</button>
+                </div>
+            </section>
+
+            <section class="section-container">
+                <h2>Explora tu Estilo</h2>
+                <div class="category-grid">
+                    <div class="cat-card" onclick="navegar('tienda', 'Hombre')"><img src="imagenes/hombrejordan.jpg" alt="Hombre"><div class="cat-overlay"><h3>HOMBRE</h3></div></div>
+                    <div class="cat-card" onclick="navegar('tienda', 'Mujer')"><img src="imagenes/mujerjordan.jpg" alt="Mujer"><div class="cat-overlay"><h3>MUJER</h3></div></div>
+                    <div class="cat-card" onclick="navegar('tienda', 'Niño')"><img src="imagenes/niñojordan.jpg" alt="Niño"><div class="cat-overlay"><h3>NIÑO/A</h3></div></div>
+                </div>
+            </section>
+
+            <section class="newsletter-section">
+                <div class="glass-box">
+                    <h2>Únete al Club</h2>
+                    <p>Sé el primero en enterarte de los nuevos lanzamientos.</p>
+                    <div class="input-group">
+                        <input type="email" placeholder="Tu email...">
+                        <button class="btn-black">Suscribirse</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-tienda" class="view">
+            <div class="shop-header">
+                <h1 id="shop-title">Catálogo Completo</h1>
+                <div class="filters">
+                    <button class="filter-chip active" onclick="filtrarTienda('todos', this)">Todo</button>
+                    <button class="filter-chip" onclick="filtrarTienda('Hombre', this)">Hombre</button>
+                    <button class="filter-chip" onclick="filtrarTienda('Mujer', this)">Mujer</button>
+                    <button class="filter-chip" onclick="filtrarTienda('Running', this)">Running</button>
+                    <button class="filter-chip" onclick="filtrarTienda('Basket', this)">Basket</button>
+                </div>
+            </div>
+            <div class="products-grid" id="contenedor-productos"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand"><h2>NIKE</h2><p>Just Do It.</p></div>
+            <div class="footer-links">
+                <div><h4>Ayuda</h4><a href="https://www.nike.com.ar/help/nota/envio-entrega">Envíos</a><a href="https://www.nike.com.ar/help/nota/politica-de-devoluciones">Devoluciones</a></div>
+                <div><h4>Empresa</h4><a href="https://about.nike.com/es-ES/newsroom">Noticias</a><a href="https://careers.nike.com/es/career-areas">Carreras</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Nike Clone Portfolio - Creado por <a href="https://joak1267.github.io/Portafolio-Joa-Tech/index.html" target="_blank">Joa Tech</a></p>
+        </div>
+    </footer>
+
+    <div id="video-modal" class="modal-overlay" onclick="cerrarVideo()">
+        <div class="video-container" onclick="event.stopPropagation()">
+            <div class="close-video-btn" onclick="cerrarVideo()">✕</div>
+            <div id="video-frame-container"></div>
+        </div>
+    </div>
+
+    <div id="modal-producto" class="modal-overlay">
+        <div class="modal-content glass-effect">
+            <span class="close-modal" onclick="cerrarModal()">&times;</span>
+            <div class="modal-layout">
+                <div class="modal-image-col"><img id="modal-img-src" src="" alt=""></div>
+                <div class="modal-info-col">
+                    <h2 id="modal-titulo">Titulo</h2>
+                    <span id="modal-cat" class="badge">Categoría</span>
+                    <div class="price-row"><span id="modal-precio" class="big-price">$0</span></div>
+                    <p id="modal-desc">Descripción...</p>
+                    <div class="sizes-grid"><span>US 7</span><span>US 8</span><span>US 9</span><span>US 10</span></div>
+                    <button class="btn-primary btn-block" id="modal-btn-add">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sidebar-carrito" class="sidebar glass-effect">
+        <div class="sidebar-header"><h3>Tu Bolsa</h3><span class="close-sidebar" onclick="toggleCarrito()">&times;</span></div>
+        <div class="sidebar-body" id="lista-carrito"></div>
+        <div class="sidebar-footer">
+            <div class="total-row"><span>Total Estimado</span><span id="carrito-total">$0</span></div>
+            <button class="btn-primary btn-block" onclick="alert('Checkout Demo')">Pagar Ahora</button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu glass-effect">
+        <span class="close-menu" onclick="toggleMenuMovil()">&times;</span>
+        <ul class="mobile-links">
+            <li onclick="navegar('home')">Inicio</li>
+            <li onclick="navegar('tienda', 'Hombre')">Hombre</li>
+            <li onclick="navegar('tienda', 'Mujer')">Mujer</li>
+            <li onclick="navegar('tienda')">Catálogo</li>
+        </ul>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
