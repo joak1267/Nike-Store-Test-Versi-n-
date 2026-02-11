@@ -6,7 +6,7 @@ const productosBD = [
         precio: 400, 
         categoria: "Running", 
         genero: "Hombre", 
-        imagenes: ["imagenes/nike1.png"],
+        imagenes: ["imagenes/nike1.jpg"], // Antes era .png
         desc: "Comodidad revolucionaria para tu carrera diaria." 
     },
     { 
@@ -15,7 +15,7 @@ const productosBD = [
         precio: 550, 
         categoria: "Lifestyle", 
         genero: "Mujer", 
-        imagenes: ["imagenes/nikeair22.png"],
+        imagenes: ["imagenes/nikeair22.jpg"], // Antes era .png
         desc: "Estilo clásico con amortiguación Air visible." 
     },
     {
@@ -24,7 +24,7 @@ const productosBD = [
         precio: 320,
         categoria: "Lifestyle",
         genero: "Hombre",
-        imagenes: ["imagenes/nike3.png"],
+        imagenes: ["imagenes/nike3.png"], // Se mantiene .png
         desc: "Inspiración en el baloncesto retro."
     },
     { 
@@ -42,7 +42,7 @@ const productosBD = [
         precio: 600, 
         categoria: "Lifestyle", 
         genero: "Niño", 
-        imagenes: ["imagenes/Nike 4.png"],
+        imagenes: ["imagenes/Nike 4.jpg"], // Antes era .png y minúscula
         desc: "La leyenda sigue viva para los más pequeños." 
     },
     {
@@ -60,7 +60,7 @@ const productosBD = [
         precio: 450, 
         categoria: "Running", 
         genero: "Mujer", 
-        imagenes: ["imagenes/airmaxpegasu.png"],
+        imagenes: ["imagenes/airmaxpegasu.jpg"], // Antes era .png
         desc: "Pisada elástica para cualquier carrera." 
     },
     { 
@@ -69,7 +69,7 @@ const productosBD = [
         precio: 270, 
         categoria: "Basket", 
         genero: "Jordan", 
-        imagenes: ["imagenes/jordanmax.png", "imagenes/jordanred.png" ],
+        imagenes: ["imagenes/jordanmax.jpg", "imagenes/jordanred.jpg" ], // Antes .png
         desc: "Amortiguación ligera y comodidad todo el día." 
     },
     { 
@@ -78,7 +78,7 @@ const productosBD = [
         precio: 250, 
         categoria: "Basket", 
         genero: "Jordan", 
-        imagenes: ["imagenes/jordannaranja.png", "imagenes/air-jordan-1-mid.png"],
+        imagenes: ["imagenes/jordannaranja.jpg", "imagenes/air-jordan-1-mid.jpg"], // Antes .png
         desc: "Amortiguación ligera y comodidad todo el día." 
     }
 ];
