@@ -306,4 +306,5 @@ document.addEventListener('keydown', (e) => {
         cerrarModal();
         document.getElementById('sidebar-carrito').classList.remove('active');
     }
+
 });
